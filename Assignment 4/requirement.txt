@@ -1,0 +1,28 @@
+grab a random number
+Bernoulli - check if it is <=p if yes, res=1 else 0
+
+Binomial - n number of bernoulli samples, how many of those samples were 1, no.of n bernoulli samples that were 1 is the single binomial sample
+
+geometric - how many sequential bernoulli samples did you have to generate before you generated the first one, start generating bernoulli samples with parameter p and count how many samples did i generate before I got to a 1
+
+neg-binomial - how many bernoulli samples did i have to generate before i got k successes 
+
+arb-discrete - Once you get a value of u, find the value of x such that 'see note'
+<p0> <p1> <p2> … <pn> are the probabilities of various arbitrary discrete values
+For eg. if I want 5 sample dice rolls for an unbiased dice, my function call would be 'see note'
+
+Poisson - if you want you can do the same for poisson: only thing is you would replace 'see note'
+or the shotcut method for poisson: generate a large number of samples from random number generator and then find  the highest value of k such that 'see note'.
+Find the highest possible value that k can take while 'see note' holds true. Once you find that x will be equal to k
+
+Uniform - Random generator follows the standard uniform distribution. All you have to do to get a sample from any uniform distribution is just stretch your sample to the range given for the uniform distribution.
+In other words, if your random number is a sample from uniform distribution(U) of (0,1) then to turn that into a sample from U(a,b) all you have to do is a+u(b-a) 'see note'
+
+Exponential- we use the standard method for any continuous distribution which is find the value of x such that the cdf is 'see note'. It's just one formula where you have to plant a single U value
+
+gamma - nothing but a summation of multiple exponential distributions of same parameter. To get 1 gamma distribution, get alpha exponential distribution samples and add them all up together
+
+normal - you can use exp method or you can use the box muler transform 
+Box Muler transform states that if you have 2 samples from a random number generator then you can convert them into 2 samples from standard normal distribution by using 'see note' (z1,z2) . Once you have these values , z1 and z2 are 2 samples from standard normal distribution. You have to convert that to samples from whatever normal disribution you have been given. Those are given by x1 and x2 'see note'
+Note: Box muler transform will always give you 2 samples from the distribution. If I ask 15 samples you have to run box muler transform 8 times and give me the first 7 values you get. If I ask an odd number of samples you will add one additional sample than what is actually needed
+
